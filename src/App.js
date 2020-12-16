@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Buttons from "./components/Buttons";
 function App() {
-  //const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
   const fetchUrl = "https://intense-peak-63735.herokuapp.com/";
 
   const [names, setNames] = useState([]);
@@ -32,7 +32,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch(fetchUrl)
+    fetch(proxyUrl + fetchUrl)
       .then((res) => res.json())
       .then((data) => setNames(data.names))
       .then(() => setLoading(false));
