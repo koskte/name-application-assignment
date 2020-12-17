@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Buttons from "./components/Buttons";
 function App() {
-  /**Using this proxy to bypass CORS */
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
   const fetchUrl = "https://intense-peak-63735.herokuapp.com/";
 
   const [names, setNames] = useState([]);
+
+  const [nameToSortBy, setNameToSortBy] = useState("");
 
   const [namesAmount, setNamesAmount] = useState({});
 
   const [loading, setLoading] = useState(true);
 
   const fetchNames = () => {
-    fetch(proxyUrl + fetchUrl)
+    fetch(fetchUrl)
       .then((res) => res.json())
       .then((data) => setNames(data.names))
       .then(() => setLoading(false));
@@ -53,6 +53,34 @@ function App() {
     });
   };
 
+  const handleChange = (value) => {
+    setNameToSortBy(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (nameToSortBy === "") {
+      return;
+    }
+
+    /** Setting the first letter to uppercase and all the subsequent letters to be lowercase */
+    const formattedName =
+      nameToSortBy[0].toUpperCase() + nameToSortBy.slice(1).toLocaleLowerCase();
+
+    let match = names.find(({ name }) => name === formattedName);
+
+    /** If no matches are found, .find() returns undefined. */
+    if (match !== undefined) {
+      setNamesAmount({
+        text: `The amount of people named ${match.name} is:`,
+        amount: match.amount,
+      });
+    } else {
+      alert(`No people named ${formattedName} were found!`);
+    }
+    setNameToSortBy("");
+  };
+
   /** Fetch names when component mounts */
   useEffect(() => {
     fetchNames();
@@ -66,7 +94,15 @@ function App() {
         amountSort={amountSort}
         alphabetSort={alphabetSort}
         amountOfAllNames={amountOfAllNames}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        inputValue={nameToSortBy}
       />
+
+      {/** While App is fetching show loading text.
+       * Then if user has sorted by total amount of names or by one name
+       * (i.e. namesAmount has an object with text property) then show that.
+       * Else, map and show contents of names array */}
       {loading ? (
         <p>Loading list of names from an API...</p>
       ) : namesAmount.hasOwnProperty("text") ? (

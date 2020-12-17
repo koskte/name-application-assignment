@@ -1,9 +1,15 @@
-import React from "react";
-
-function Buttons({ amountSort, alphabetSort, amountOfAllNames }) {
+function Buttons({
+  amountSort,
+  alphabetSort,
+  amountOfAllNames,
+  handleChange,
+  handleSubmit,
+  inputValue,
+}) {
   return (
     <div>
       <p>Sort by: </p>
+
       <button
         onClick={() => {
           amountSort();
@@ -11,6 +17,7 @@ function Buttons({ amountSort, alphabetSort, amountOfAllNames }) {
       >
         Popularity
       </button>
+
       <button
         onClick={() => {
           alphabetSort();
@@ -18,6 +25,7 @@ function Buttons({ amountSort, alphabetSort, amountOfAllNames }) {
       >
         Alphabetical order
       </button>
+
       <button
         onClick={() => {
           amountOfAllNames();
@@ -25,6 +33,15 @@ function Buttons({ amountSort, alphabetSort, amountOfAllNames }) {
       >
         Total amount of all names
       </button>
+
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          type="text"
+          value={inputValue}
+          placeholder="Input name"
+          onChange={(e) => handleChange(e.target.value)}
+        />
+      </form>
     </div>
   );
 }
