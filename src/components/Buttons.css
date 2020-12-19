@@ -62,3 +62,50 @@ input:focus {
   color: white;
   letter-spacing: 1px;
 }
+
+@media screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sortTextContainer {
+    flex-basis: 100%;
+  }
+  .sortText {
+    float: left;
+    width: 60vw;
+  }
+  input {
+    flex-grow: 0;
+    margin: 1.5px 0px;
+    border-radius: 30px;
+  }
+  input:focus {
+    animation-name: unset;
+    outline: none;
+  }
+  form {
+    background-color: #02d570;
+  }
+  .sortText {
+    height: 26px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .sortText {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1255px) {
+  .sortText {
+    width: 75vw;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .sortText {
+    width: 80vw;
+  }
+}

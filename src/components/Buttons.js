@@ -10,7 +10,17 @@ function Buttons({
 }) {
   return (
     <div className="container">
-      <p className="sortText">Sort by: </p>
+      <div className="sortTextContainer">
+        <p className="sortText">Sort by: </p>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <input
+            type="text"
+            value={inputValue}
+            placeholder="Input name"
+            onChange={(e) => handleChange(e.target.value)}
+          />
+        </form>
+      </div>
 
       <button
         onClick={() => {
@@ -35,15 +45,6 @@ function Buttons({
       >
         TOTAL AMOUNT
       </button>
-
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          value={inputValue}
-          placeholder="Input name"
-          onChange={(e) => handleChange(e.target.value)}
-        />
-      </form>
     </div>
   );
 }

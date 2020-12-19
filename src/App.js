@@ -76,7 +76,10 @@ function App() {
         amount: match.amount,
       });
     } else {
-      alert(`No people named ${formattedName} were found!`);
+      setNamesAmount({
+        text: `No people named ${formattedName} were found!`,
+        amount: null,
+      });
     }
     setNameToSortBy("");
   };
@@ -89,7 +92,7 @@ function App() {
   useEffect(() => {}, [namesAmount, names]);
 
   return (
-    <div className="container">
+    <div className="container1">
       <Buttons
         amountSort={amountSort}
         alphabetSort={alphabetSort}
@@ -107,12 +110,12 @@ function App() {
         {loading ? (
           <p>Loading list of names from an API...</p>
         ) : namesAmount.hasOwnProperty("text") ? (
-          <p>
+          <p className="totalOrSearchText">
             {namesAmount.text} {namesAmount.amount}
           </p>
         ) : (
           names.map((name, index) => (
-            <p key={index}>
+            <p key={index} className="listItem">
               {name.name}: {name.amount}
             </p>
           ))

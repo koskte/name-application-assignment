@@ -4,3 +4,17 @@
   font-size: 20px;
   letter-spacing: 1px;
 }
+
+@media screen and (min-width: 768px) {
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .listItem {
+    flex-basis: 33%;
+  }
+  .totalOrSearchText {
+    flex-basis: 100%;
+  }
+}
