@@ -1,3 +1,5 @@
+import "./Buttons.css";
+
 function Buttons({
   amountSort,
   alphabetSort,
@@ -7,15 +9,15 @@ function Buttons({
   inputValue,
 }) {
   return (
-    <div>
-      <p>Sort by: </p>
+    <div className="container">
+      <p className="sortText">Sort by: </p>
 
       <button
         onClick={() => {
           amountSort();
         }}
       >
-        Popularity
+        POPULARITY
       </button>
 
       <button
@@ -23,7 +25,7 @@ function Buttons({
           alphabetSort();
         }}
       >
-        Alphabetical order
+        ALPHABET
       </button>
 
       <button
@@ -31,7 +33,7 @@ function Buttons({
           amountOfAllNames();
         }}
       >
-        Total amount of all names
+        TOTAL AMOUNT
       </button>
 
       <form onSubmit={(e) => handleSubmit(e)}>

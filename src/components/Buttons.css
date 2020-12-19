@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  border-style: none;
+  outline: none;
+  font-size: 20px;
+  height: 45px;
+  background-color: #5ca8da;
+  border-top: 3px solid white;
+  color: white;
+  transition: background-color 0.3s;
+  transition-timing-function: ease;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background-color: white;
+  color: #5ca8da;
+}
+
+form {
+  display: flex;
+}
+@keyframes test {
+  from {
+    outline-color: #5ca8da;
+  }
+  to {
+    outline-color: white;
+  }
+}
+input {
+  text-align: center;
+  font-size: 20px;
+  height: 40px;
+  flex-grow: 1;
+  margin: 3px 20px;
+  border: none;
+  border-bottom: solid #5ca8da 1px;
+  outline-color: white;
+}
+
+input:focus {
+  animation-name: test;
+  animation-duration: 0.8s;
+}
+
+::placeholder {
+  color: grey;
+  letter-spacing: 1px;
+}
+
+.sortText {
+  font-size: 20px;
+  margin-left: 5px;
+  background-color: #02d570;
+  margin: 0;
+  padding: 10px;
+  color: white;
+  letter-spacing: 1px;
+}

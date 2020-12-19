@@ -89,7 +89,7 @@ function App() {
   useEffect(() => {}, [namesAmount, names]);
 
   return (
-    <div>
+    <div className="container">
       <Buttons
         amountSort={amountSort}
         alphabetSort={alphabetSort}
@@ -103,19 +103,21 @@ function App() {
        * Then if user has sorted by total amount of names or by one name
        * (i.e. namesAmount has an object with text property) then show that.
        * Else, map and show contents of names array */}
-      {loading ? (
-        <p>Loading list of names from an API...</p>
-      ) : namesAmount.hasOwnProperty("text") ? (
-        <p>
-          {namesAmount.text} {namesAmount.amount}
-        </p>
-      ) : (
-        names.map((name, index) => (
-          <p key={index}>
-            {name.name}: {name.amount}
+      <div className="list">
+        {loading ? (
+          <p>Loading list of names from an API...</p>
+        ) : namesAmount.hasOwnProperty("text") ? (
+          <p>
+            {namesAmount.text} {namesAmount.amount}
           </p>
-        ))
-      )}
+        ) : (
+          names.map((name, index) => (
+            <p key={index}>
+              {name.name}: {name.amount}
+            </p>
+          ))
+        )}
+      </div>
     </div>
   );
 }
