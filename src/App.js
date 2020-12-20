@@ -77,7 +77,7 @@ function App() {
       });
     } else {
       setNamesAmount({
-        text: `No people named ${formattedName} were found!`,
+        text: `No one named ${formattedName} were found!`,
         amount: null,
       });
     }

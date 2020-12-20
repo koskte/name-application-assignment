@@ -36,7 +36,7 @@ function Buttons({
           alphabetSort();
         }}
       >
-        ALPHABET
+        ALPHABETICAL ORDER
       </button>
 
       <button
