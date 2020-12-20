@@ -24,7 +24,7 @@ button:hover {
 form {
   display: flex;
 }
-@keyframes test {
+@keyframes outline {
   from {
     outline-color: #5ca8da;
   }
@@ -44,12 +44,11 @@ input {
 }
 
 input:focus {
-  animation-name: test;
+  animation-name: outline;
   animation-duration: 0.8s;
 }
 
 ::placeholder {
-  color: grey;
   letter-spacing: 1px;
 }
 
@@ -90,6 +89,9 @@ input:focus {
   }
   .sortText {
     height: 26px;
+  }
+  button {
+    margin-right: 1px;
   }
 }
 

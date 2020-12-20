@@ -12,11 +12,12 @@ function Buttons({
     <div className="container">
       <div className="sortTextContainer">
         <p className="sortText">Sort by: </p>
+
         <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
             value={inputValue}
-            placeholder="Input name"
+            placeholder="Name"
             onChange={(e) => handleChange(e.target.value)}
           />
         </form>
